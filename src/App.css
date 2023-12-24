@@ -1,38 +1,310 @@
-.App {
+.app-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden; /* Ensure that child elements don't overflow */
+}
+
+.topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  z-index: 2; /* Ensure it's above the image */
+}
+
+.topbar nav ul {
+  list-style-type: none; /* Remove bullet points from list */
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.topbar nav ul li {
+  display: inline;
+}
+
+.topbar nav ul li a {
+  text-decoration: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.topbar nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Light background on hover */
+}
+.image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('Images/main.png');
+  /* background-size:contain; */
+  background-repeat: no-repeat; 
+  background-position: center;
+  filter:brightness(1);
+  z-index: 1; /* Place it below the topbar */
+}
+
+.center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5rem;
+  color: white;
+  z-index: 3; /* Ensure it's above everything */
+}
+
+.logos-row {
+  display: flex;
+  justify-content: space-around;  
+  align-items: center;            
+  padding: 20px 0;                
+}
+
+.logo {
+  width: 100px;  
+  height: auto;  
+}
+
+.container-1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Creates two equal-width columns */
+  align-items: center; /* Vertically centers the content */
+  background-color:#0A2236;
+  color:white;
+}
+
+.left-side, .right-side {
+  padding: 20px;
+}
+
+/* Optional: To make it responsive */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr; /* Stacks items vertically on smaller screens */
+  }
+}
+.container-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  background:#E6EEF5;
+}
+
+.box {
+  padding: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h2 span {
+  font-size: 1.5em;
+  margin-right: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.paragraph {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: rgb(12, 2, 2); /* For better visibility on the images */
+}
+
+.container-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.head{
+  text-align:center;
+}
+
+.column {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.row {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 100%;
+  padding: 10px;
+}
+
+.cards {
+  position:relative;
+  width: 250px; 
+  margin: 10px 0;
+}
+
+.cards img {
+  width: 80%;
+  height: auto;
+}
+
+.column .row .cards img {
+  transition: transform 0.3s ease;
+}
+
+
+.one img {
+  transform: translateX(-150px);
+}
+
+
+.two img {
+  transform: translateX(150px);
+}
+
+/* Move third image up */
+.three img {
+  transform: translateX(-150px);
+}
+
+/* Move fourth image down */
+.four img {
+  transform: translateX(150px);
+}
+
+
+.image-section {
+  text-align: center; /* Center align the heading */
+  padding: 20px;
+  background-color:#0A2236;
+  color:white;
+}
+
+.image-container-2 {
+  display: flex; /* Use flexbox to layout images side by side */
+  justify-content: center; /* Center the images horizontally */
+  gap: 20px; /* Space between images */
+  flex-wrap: wrap; /* Allow images to wrap to the next line if needed */
+  
+}
+
+.image-item {
+  flex: 1; /* Each image takes up equal space */
+  max-width: 200px; /* Maximum width for each image */
+  text-align: center; /* Center align the image and paragraph */
+}
+
+.image-item img {
+  max-width: 100%; /* Ensure the image fits within its container */
+  height: auto; /* Maintain the aspect ratio of the image */
+  border-radius: 8px; /* Optional: Add rounded corners to the image */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+.image-item p {
+  margin-top: 10px; /* Add some space between the image and paragraph */
+}
+.card-carousel {
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* .card {
+  padding: 20px;
+} */
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+.contact-us{
+  color: #0A2236;
+  text-align: center;
+  background:#E6EEF5;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.footer {
+  width: 100%;
+  background-color: #0A2236;
+  padding: 20px 0;
+  border-top: 1px solid #ddd;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  color:white;
+}
+
+.column {
+  width: 18%;
+ 
+}
+
+.row {
+  margin-bottom: 10px;
+  font-size: 0.9em; /* Reduced font size */
+}
+
+.line {
+  border-top: 1px solid #ddd;
+}
+a{
+  color:white;
+  text-decoration:none;
+}
+
+.additional-row  {
   color: white;
+  background-color: #0A2236;
+  font-size: 0.9em; /* Reduced font size */
+  display: flex;
+  
+
+}
+.additional-row a{
+  padding-right: 210px;
+  padding-top: 14px;
+}
+.para{
+  margin-right: auto;
+}
+.input-container {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden; /* Ensures that the arrow stays within the container */
 }
 
-.App-link {
-  color: #61dafb;
+.input-container input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  outline: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.arrow {
+  padding: 10px;
+  font-size: 18px;
+  color: #555;
+  background-color: #f4f4f4;
+  cursor: pointer;
 }
+
+
+
+
+
